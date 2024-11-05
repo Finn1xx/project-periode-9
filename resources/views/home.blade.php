@@ -1,53 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Home</title>
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-
 </head>
+
 <body>
-<nav id="navbar">
-    <div id="logonav">
-        <img src="Photos/cropped-logo%20UNEED-IT.png">
-    </div>
-    <div id="logoptions">
-        <ul>
-            <li class="redc"> <a href="{{ url('/home')}}">Home</a> </li>
-            <li class="bluec"> <a href="{{ url('Overons')}}">Over ons </a></li>
-            <li class="redc"> <a href="service.html">Service </a></li>
-            <li class="blue"> <a href="zakelijk.html">Zakelijk </a></li>
-            <li class="redc"> <a href="faq.html">Faq </a></li>
-            <li class="bluec"><a href="Bezorgdiensten.html"> Bezorgdiensten </a></li>
-            <li class="redc"> <a href="account.php">Account </a> </li>
-        </ul>
-    </div>
-</nav>
-<main id="mainhome">
-<div id="hometext">
-    <img src="resources/assets/img/cropped-logo UNEED-IT(notext).png">
-    <p><span class="white-text">voor al uw reparaties kunt u terecht bij</span><span class="red-text">Uneed-</span><span  class="blue-text">it</span></p>
-</div>
-</main>
-<footer id="footer">
-    <div id="adress">
-        <img src="Photos/location.png">
-        <p>ZUIDBAAN 514, 2841MD</p>
-       <p> MOORDRECHT</p>
-    </div>
-    <div id="telefoonnnumer">
-        <img src="Photos/phone.png">
-        <p>+316 30 985 409 SERVICENUMMER</p>
-        <p>+3118 28 202 18 KANTOOR </p>
-        <p> BEREIKBAAR VAN 09:00-18:00</p>
-    </div>
-    <div id="tijd">
-        <img src="Photos/clock.png">
-        <p>MA T/M VRIJ, 09:00 - 23:00</p>
-        <p>TELEFONISCH BEREIKBAAR</p>
-        <p>VOOR ABONNEMENTHOUDERS</p>
-    </div>
-</footer>
+    <nav id="navbar">
+        <div id="logonav">
+            <img src="{{ asset(path: 'img/cropped-logo UNEED-IT.png') }}" alt="Uneed-IT Logo">
+        </div>
+        <div id="logoptions">
+            <ul>
+            <li class="redc"><a href="{{ url('/') }}">Home</a></li> <!-- Aangepast -->
+            <li class="bluec"><a href="{{ url('/over-ons') }}">Over ons</a></li>
+            <li class="redc"><a href="{{ url('/service') }}">Service</a></li> <!-- Aangepast -->
+            <li class="bluec"><a href="{{ url('/zakelijk') }}">Zakelijk</a></li> <!-- Aangepast -->
+            <li class="redc"><a href="{{ url('/faq') }}">Faq</a></li> <!-- Aangepast -->
+            <li class="bluec"><a href="{{ url('/Bezorgdiensten') }}">Bezorgdiensten</a></li> <!-- Aangepast -->
+            <li class="redc"><a href="{{ url('/login_or_signup') }}">Account</a></li> <!-- Aangepast -->
+            </ul>
+        </div>
+    </nav>
+    <main id="mainhome">
+        <div id="hometext">
+            <img src="{{ asset('img/cropped-logo uneed-it(notext).png') }}" alt="Uneed-IT">
+            <p><span class="white-text">Voor al uw reparaties kunt u terecht bij </span><span class="red-text">Uneed-</span><span class="blue-text">it</span></p>
+        </div>
+    </main>
+    <footer id="footer">
+        <div id="adress">
+            <img src="{{ asset('img/location.png') }}" alt="Location Icon">
+            <p>Zuidbaan 514, 2841MD</p>
+            <p>Moordrecht</p>
+        </div>
+        <div id="telefoonnnummer">
+            <img src="{{ asset('img/phone.png') }}" alt="Phone Icon">
+            <p>+316 30 985 409 (Servicenummer)</p>
+            <p>+3118 28 202 18 (Kantoor)</p>
+            <p>Bereikbaar van 09:00 - 18:00</p>
+        </div>
+        <div id="tijd">
+            <img src="{{ asset('img/clock.png') }}" alt="Clock Icon">
+            <p>Ma t/m Vrij, 09:00 - 23:00</p>
+            <p>Telefonsich bereikbaar voor abonnementhouders</p>
+        </div>
+    </footer>
 </body>
+
 </html>

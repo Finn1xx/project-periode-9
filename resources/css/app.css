@@ -624,7 +624,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-image: url("Photos/uneedi01.jpg");
+    background-image: url("../img/uneedi01.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -1090,7 +1090,7 @@ body {
     align-items: center;
     min-height: 100vh;
     padding-top: 160px;
-    background-image: url("Photos/40gp-uneedit5.jpg");
+    background-image: url("../img/40gp-uneedit5.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;

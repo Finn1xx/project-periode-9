@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Zakelijk</title>
-    <link rel="stylesheet" href="bestellenstyle.css">
+    <title>Home</title>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>
 <nav id="navbar">
@@ -12,13 +12,13 @@
     </div>
     <div id="logoptions">
         <ul>
-            <li class="redc"> <a href="home.html">Home</a> </li>
-            <li class="bluec"> <a href="OverOns.html">Over ons </a></li>
-            <li class="redc"> <a href="service.html">Service </a></li>
-            <li class="bluec" > <a href="zakelijk.html">Zakelijk </a></li>
-            <li class="redc"> <a href="faq.html">Faq </a> </li>
-            <li class="bluec"><a href="Bezorgdiensten.html"> Bezorgdiensten </a></li>
-            <li class="redc"> <a href="account.php">Account </a> </li>
+        <li class="redc"><a href="{{ url('/') }}">Home</a></li> <!-- Aangepast -->
+            <li class="bluec"><a href="{{ url('/over-ons') }}">Over ons</a></li>
+            <li class="redc"><a href="{{ url('/service') }}">Service</a></li> <!-- Aangepast -->
+            <li class="bluec"><a href="{{ url('/zakelijk') }}">Zakelijk</a></li> <!-- Aangepast -->
+            <li class="redc"><a href="{{ url('/faq') }}">Faq</a></li> <!-- Aangepast -->
+            <li class="bluec"><a href="{{ url('/Bezorgdiensten') }}">Bezorgdiensten</a></li> <!-- Aangepast -->
+            <li class="redc"><a href="{{ url('/login_or_signup') }}">Account</a></li> <!-- Aangepast -->
         </ul>
     </div>
 </nav>

@@ -22,32 +22,27 @@
                 .then(data => {
                     console.log('User role:', data.role); // Controleer de rol in de console
 
-                    const verzoekenBtn = document.getElementById("verzoekenBtn");
-                    if (!verzoekenBtn) {
-                        console.error("verzoekenBtn is niet gevonden in de DOM.");
-                        return; // Stop de functie als de knop niet gevonden is
-                    }
-
-                    // Toon de knop voor admin
+                    // Knop voor offertes
+                    const offertesBtn = document.getElementById("offertesBtn");
                     if (data.role === 'admin') {
                         console.log("Admin user - knop wordt zichtbaar");
-                        verzoekenBtn.style.display = "block"; // Laat de knop zien
+                        offertesBtn.style.display = "block"; // Laat de knop zien voor admin
                     } else {
                         console.log("Regular or guest user - knop wordt verborgen");
-                        verzoekenBtn.style.display = "none"; // Verberg de knop voor andere gebruikers
+                        offertesBtn.style.display = "none"; // Verberg de knop voor andere gebruikers
                     }
                 })
                 .catch(error => console.error('Error fetching user role:', error));
         }
 
-        // Functie om naar de reparatieverzoekpagina te navigeren
-        function navigateToRepairRequest() {
-            window.location.href = "/reparatieverzoek"; // Zorg ervoor dat deze route bestaat in Laravel
-        }
-
         // Functie om naar de verzoeken pagina te navigeren
         function viewRequests() {
             window.location.href = "/verzoeken"; // Zorg ervoor dat deze route bestaat in Laravel
+        }
+
+        // Functie om naar de reparatieverzoekpagina te navigeren
+        function navigateToRepairRequest() {
+            window.location.href = "/reparatieverzoek"; // Zorg ervoor dat deze route bestaat in Laravel
         }
     </script>
 </head>
@@ -74,8 +69,10 @@
         <h1>Welkom!</h1>
         <p>We zijn blij om u te kunnen helpen. Hoe kunnen wij assisteren?</p>
         <div class="buttons">
-            <button onclick="navigateToRepairRequest()">Offertes bekijken</button>
-            <button onclick="viewRequests()" id="verzoekenBtn" style="display: none;">Verzoeken bekijken</button>
+            <!-- Knop voor verzoeken bekijken (moet zichtbaar zijn voor iedereen) -->
+            <button onclick="viewRequests()">Verzoeken bekijken</button>
+            <!-- Knop voor offertes bekijken (alleen zichtbaar voor admin) -->
+            <button id="offertesBtn" style="display: none;" onclick="navigateToRepairRequest()">Offertes bekijken</button>
         </div>
     </div>
 </main>
