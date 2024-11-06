@@ -6,6 +6,11 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\RepairRequestController; // Zorg ervoor dat je deze import hebt toegevoegd
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\AppointmentController;
+
+Route::resource('appointments', AppointmentController::class);
+
+
 
 // Route voor de homepagina
 Route::get('/', function () {
@@ -92,3 +97,4 @@ Route::get('/drinks', function () {
     $drinks = Drink::all(); // Haal alle dranken op uit de database
     return view('index', compact('drinks')); // Zorg ervoor dat je een 'index.blade.php' view hebt
 });
+
