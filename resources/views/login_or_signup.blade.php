@@ -27,7 +27,7 @@
     <div class="login-signup">
         <h1>Het lijkt erop dat jij niet ingelogd bent</h1>
         <a href="{{ route('login') }}"><button>Log In</button></a>
-        <a href="{{ route('register') }}"><button>Sign Up</button></a>
+        <button onclick="window.location.href='{{ route('register') }}'">Sign Up</button>
     </div>
 </div>
 </body>

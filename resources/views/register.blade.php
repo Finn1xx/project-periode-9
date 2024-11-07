@@ -24,7 +24,7 @@
     </nav>
 
     <div class="container">
-        <h1>Maak een nieuw account aan</h1>
+        <h1>Maak een account aan</h1>
         <form method="POST" action="{{ route('register') }}">
             @csrf
             <div>
@@ -42,6 +42,13 @@
             <div>
                 <label for="password_confirmation">Bevestig Wachtwoord:</label>
                 <input type="password" id="password_confirmation" name="password_confirmation" required>
+            </div>
+            <div>
+                <label for="role">Kies een rol:</label>
+                <select id="role" name="role" required>
+                    <option value="user">User</option>
+                    <option value="admin">Admin</option>
+                </select>
             </div>
             <div>
                 <button type="submit">Registreer</button>

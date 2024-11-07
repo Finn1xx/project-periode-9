@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Reparatieverzoeken</title>
+    <title>Nieuw Reparatieverzoek</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
@@ -12,30 +12,28 @@
         <a href="{{ url('/zakelijk') }}">Terug naar Zakelijk</a>
     </nav>
 
-    <h1>Reparatieverzoeken</h1>
+    <h1>Dien een Reparatieverzoek in</h1>
 
-    @if($requests->isEmpty())
-        <p>Er zijn momenteel geen verzoeken.</p>
-    @else
-        <table>
-            <thead>
-                <tr>
-                    <th>Naam</th>
-                    <th>Email</th>
-                    <th>Beschrijving</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach($requests as $request)
-                    <tr>
-                        <td>{{ $request->name }}</td>
-                        <td>{{ $request->email }}</td>
-                        <td>{{ $request->description }}</td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
-    @endif
+    <form action="{{ route('repair.request.store') }}" method="POST">
+        @csrf
+        <div>
+            <label for="name">Naam:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+
+        <div>
+            <label for="description">Beschrijving:</label>
+            <textarea id="description" name="description" required></textarea>
+        </div>
+
+        <button type="submit">Verzend Verzoek</button>
+    </form>
+
 </body>
 
 </html>

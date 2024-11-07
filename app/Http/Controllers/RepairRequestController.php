@@ -2,20 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\RepairRequest; // Zorg ervoor dat je het model importeert
+use App\Models\RepairRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 class RepairRequestController extends Controller
 {
-    // Methode om het formulier voor reparatieverzoek weer te geven
+    // Methode om het formulier voor een reparatieverzoek weer te geven
     public function create()
     {
-        // Hier kun je de requests ophalen, als dat nodig is
-        $requests = RepairRequest::all(); // Zorg ervoor dat je deze model import hebt
-        return view('reparatieverzoek', compact('requests'));
+        return view('reparatieverzoek'); // Laadt alleen de formulierpagina zonder $requests
     }
-    
 
     // Methode om het reparatieverzoek op te slaan
     public function store(Request $request)
@@ -43,11 +40,11 @@ class RepairRequestController extends Controller
         return response()->json(['message' => 'Reparatieverzoek succesvol verzonden!'], 201);
     }
 
-    // Methode om alle reparatieverzoeken op te halen
+    // Methode om alle reparatieverzoeken op te halen (voor admin)
     public function index()
     {
         // Haal alle verzoeken op
         $requests = RepairRequest::all();
-        return view('verzoeken', compact('requests')); // Zorg ervoor dat de 'verzoeken' view bestaat
+        return view('verzoeken', compact('requests')); // Zorg dat de 'verzoeken' view bestaat
     }
 }

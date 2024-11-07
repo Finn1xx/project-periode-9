@@ -6,27 +6,17 @@ use Illuminate\Support\Facades\Schema;
 
 class AddRoleToUsersTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('role')->default('user'); // Voegt een 'role' kolom toe met standaardwaarde 'user'
+            $table->string('role')->default('user');
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('role'); // Verwijder de 'role' kolom bij rollback
+            $table->dropColumn('role');
         });
     }
 }
