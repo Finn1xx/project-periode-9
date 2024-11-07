@@ -12,13 +12,11 @@
         </div>
         <div id="logoptions">
             <ul>
-                <li class="redc"><a href="{{ url('/') }}">Home</a></li>
-                <li class="bluec"><a href="{{ url('/over-ons') }}">Over ons</a></li>
-                <li class="redc"><a href="{{ url('/service') }}">Service</a></li>
-                <li class="bluec"><a href="{{ url('/zakelijk') }}">Zakelijk</a></li>
-                <li class="redc"><a href="{{ url('/faq') }}">Faq</a></li>
-                <li class="bluec"><a href="{{ url('/Bezorgdiensten') }}">Bezorgdiensten</a></li>
-                <li class="redc"><a href="{{ url('/login_or_signup') }}">Account</a></li>
+                <li><a href="{{ url('/') }}">Home</a></li>
+                <li><a href="{{ url('/over-ons') }}">Over ons</a></li>
+                <li><a href="{{ url('/zakelijk') }}">Zakelijk</a></li>
+                <li><a href="{{ url('/faq') }}">Faq</a></li>
+                <li><a href="{{ url('/login_or_signup') }}">Account</a></li>
             </ul>
         </div>
     </nav>
