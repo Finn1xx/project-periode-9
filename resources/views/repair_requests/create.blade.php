@@ -4,32 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Nieuw Reparatieverzoek</title>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite(['resources/css/app.scss', 'resources/js/app.js'])
 </head>
 
 <body>
-<nav id="navbar">
-        <div id="logonav">
-            <img src="{{ asset(path: 'img/cropped-logo UNEED-IT.png') }}" alt="Uneed-IT Logo">
-        </div>
-        <div id="logoptions">
-            <ul>
-            <li class="redc"><a href="{{ url('/') }}">Home</a></li> <!-- Aangepast -->
-            <li class="bluec"><a href="{{ url('/over-ons') }}">Over ons</a></li>
-            <li class="redc"><a href="{{ url('/service') }}">Service</a></li> <!-- Aangepast -->
-            <li class="bluec"><a href="{{ url('/zakelijk') }}">Zakelijk</a></li> <!-- Aangepast -->
-            <li class="redc"><a href="{{ url('/faq') }}">Faq</a></li> <!-- Aangepast -->
-            <li class="bluec"><a href="{{ url('/Bezorgdiensten') }}">Bezorgdiensten</a></li> <!-- Aangepast -->
-            <li class="redc"><a href="{{ url('/login_or_signup') }}">Account</a></li> <!-- Aangepast -->
-            </ul>
-        </div>
-    </nav>
+    <!-- Verwijst naar de navigatiebalk -->
+    @extends('nav')
 
     <div class="container">
         <div class="row">
             <div class="col-6">
-            <h1>Dien een Reparatieverzoek in</h1>
-
+                <h1>Dien een Reparatieverzoek in</h1>
             </div>
             <div class="col-6">
                 <form action="{{ route('repair.request.store') }}" method="POST">
@@ -62,13 +47,12 @@
             
                     <button type="submit">Verzend Verzoek</button>
                 </form>
-
             </div>
         </div>
-
     </div>
 
-
+    <!-- Verwijst naar de footer -->
+    @extends('footer')
 
 </body>
 

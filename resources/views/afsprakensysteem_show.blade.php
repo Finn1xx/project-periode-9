@@ -1,7 +1,12 @@
-@extends('layouts.app')
-
-@section('content')
-    <h2>Afspraak Details</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Afspraken</title>
+    @vite(['resources/css/app.scss', 'resources/js/app.js'])
+</head>
+@extends(view: 'nav')
+<h2>Afspraak Details</h2>
 
     <p>Naam: {{ $appointment->name }}</p>
     <p>E-mail: {{ $appointment->email }}</p>
@@ -15,4 +20,5 @@
         <button type="submit">Verwijderen</button>
     </form>
     <a href="{{ route('appointments.index') }}">Terug naar afsprakenlijst</a>
-@endsection
+    @extends('footer')
+

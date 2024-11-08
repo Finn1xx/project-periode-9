@@ -4,32 +4,40 @@
 <head>
     <meta charset="UTF-8">
     <title>Account</title>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite(['resources/css/app.scss', 'resources/js/app.js'])
 </head>
+
 <body>
-<nav id="navbar">
-    <div id="logonav">
-        <img src="{{ asset('img/cropped-logo UNEED-IT.png') }}" alt="Uneed-IT Logo">
+@extends('nav')
+
+
+    <div class="container login_or_sign_container">
+        <div class="row">
+            <div class="col-12 d-flex justify-content-center align-items-center">
+                <div>
+                    <!-- Voor niet-ingelogde gebruikers tonen we de login en signup knoppen -->
+                    @guest
+                    <div class="col-12 d-flex justify-content-center align-items-center flex-column">
+
+                        <h1 class="mb-5">Het lijkt erop dat jij niet ingelogd bent</h1>
+                        <a href="{{ route('login') }}"><button>Log In</button></a>
+                        <button onclick="window.location.href='{{ route('register') }}'">Sign Up</button>
+                    </div>
+                    @endguest
+        
+                    <!-- Voor ingelogde gebruikers tonen we een loguitknop -->
+                    @auth
+                        <h1>Welkom, {{ Auth::user()->name }}</h1>
+                        <form class="d-flex justify-content-center align-items-center" action="{{ route('logout') }}" method="POST">
+                            @csrf
+                            <button type="submit">Log Uit</button>
+                        </form>
+                    @endauth
+                </div>
+            </div>
+        </div>
     </div>
-    <div id="logoptions">
-    <ul>
-                <li class="redc"><a href="{{ url('/') }}">Home</a></li>
-                <li class="bluec"><a href="{{ url('/over-ons') }}">Over ons</a></li>
-                <li class="redc"><a href="{{ url('/service') }}">Service</a></li>
-                <li class="bluec"><a href="{{ url('/zakelijk') }}">Zakelijk</a></li>
-                <li class="redc"><a href="{{ url('/faq') }}">Faq</a></li>
-                <li class="bluec"><a href="{{ url('/Bezorgdiensten') }}">Bezorgdiensten</a></li>
-                <li class="redc"><a href="{{ url('/login_or_signup') }}">Account</a></li>
-                <li class="bluec"><a href="{{ url('/afspraken') }}">Afspraken Systeem</a></li> <!-- Nieuwe link toegevoegd -->
-            </ul>
-    </div>
-</nav>
-<div class="container">
-    <div class="login-signup">
-        <h1>Het lijkt erop dat jij niet ingelogd bent</h1>
-        <a href="{{ route('login') }}"><button>Log In</button></a>
-        <button onclick="window.location.href='{{ route('register') }}'">Sign Up</button>
-    </div>
-</div>
+    @extends('footer')
+
 </body>
 </html>

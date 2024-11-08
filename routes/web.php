@@ -17,37 +17,37 @@ Route::prefix('appointments')->name('appointments.')->group(function () {
     Route::delete('/{appointment}', [AppointmentController::class, 'destroy'])->name('destroy'); // Verwijderen afspraak
 });
 
-// Verwijs naar de AppointmentController voor de /afspraken route
+// Specifieke afspraken route voor /afspraken
 Route::get('/afspraken', [AppointmentController::class, 'index'])->name('afsprakensysteem');
 
 // Algemene routes voor de site
-Route::get('/', function () { return view('home'); });
-Route::get('/over-ons', function () { return view('Overons'); });
-Route::get('/service', function () { return view('service'); });
-Route::get('/faq', function () { return view('faq'); });
-Route::get('/zakelijk', function () { return view('zakelijk'); });
+Route::get('/', function () { return view('home'); })->name('home');
+Route::get('/over-ons', function () { return view('overons'); })->name('overons');
+Route::get('/service', function () { return view('service'); })->name('service');
+Route::get('/zakelijk', function () { return view('zakelijk'); })->name('zakelijk');
+Route::get('/faqq', function () { return view('faqq'); })->name('faqq');
 Route::get('/login_or_signup', function () { return view('login_or_signup'); })->name('login_or_signup');
 
 // Beveiligde routes voor ingelogde gebruikers
 Route::middleware(['auth'])->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
-    Route::get('/bestellen', function () { return view('bestellen'); });
-    Route::get('/Bezorgdiensten', function () { return view('Bezorgdiensten'); });
+    Route::get('/bestellen', function () { return view('bestellen'); })->name('bestellen');
+    Route::get('/Bezorgdiensten', function () { return view('Bezorgdiensten'); })->name('Bezorgdiensten');
 });
 
-// Registratie en login routes
+// Auth routes (login en registratie)
 Route::get('/register', [App\Http\Controllers\Auth\RegisterController::class, 'showRegistrationForm'])->name('register');
 Route::post('/register', [App\Http\Controllers\Auth\RegisterController::class, 'register']);
 Route::get('/login', [App\Http\Controllers\Auth\LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [App\Http\Controllers\Auth\LoginController::class, 'login']);
 Auth::routes();
 
-// Publiek toegankelijke routes voor RepairRequestController
+// Routes voor reparatieverzoeken (publiek toegankelijk)
 Route::get('/reparatieverzoek', [RepairRequestController::class, 'create'])->name('repair.request.create');
 Route::post('/reparatieverzoek', [RepairRequestController::class, 'store'])->name('repair.request.store');
 
-// Admin-only routes
+// Admin-only routes (beveiligd met 'auth' en 'admin' middleware)
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/verzoeken', [RepairRequestController::class, 'index'])->name('verzoeken.index');
-    Route::get('/admin/dashboard', function () { return view('home'); })->name('admin.dashboard');
 });
+

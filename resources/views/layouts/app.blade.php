@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUa1gb8zM6CpNp8Qw7KqKoZ3txgGX7rGqO9foU7ELpBBvn8DBtDQJ6MDwGH7" crossorigin="anonymous">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -13,11 +14,12 @@
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
-    <!-- Scripts -->
+    <!-- Scripts en Stylesheets -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 <body>
     <div id="app">
+        <!-- Navigatiebalk -->
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -28,21 +30,20 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
+                    <!-- Linkerkant van de navigatiebalk -->
                     <ul class="navbar-nav me-auto">
-
+                        <!-- Voeg hier eventuele link-items toe -->
                     </ul>
 
-                    <!-- Right Side Of Navbar -->
+                    <!-- Rechterkant van de navigatiebalk -->
                     <ul class="navbar-nav ms-auto">
-                        <!-- Authentication Links -->
+                        <!-- Authenticatie Links -->
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
                             @endif
-
                             @if (Route::has('register'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
@@ -72,9 +73,13 @@
             </div>
         </nav>
 
+        <!-- Hoofdcontent -->
         <main class="py-4">
             @yield('content')
         </main>
+
+        <!-- Footer -->
+        @include('footer')
     </div>
 </body>
 </html>

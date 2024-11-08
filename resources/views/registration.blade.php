@@ -4,26 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Home</title>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite(['resources/css/app.scss', 'resources/js/app.js'])
 </head>
 <body>
-<nav id="navbar">
-    <div id="logonav">
-        <img src="Photos/cropped-logo%20UNEED-IT.png">
-    </div>
-    <div id="logoptions">
-    <ul>
-                <li class="redc"><a href="{{ url('/') }}">Home</a></li>
-                <li class="bluec"><a href="{{ url('/over-ons') }}">Over ons</a></li>
-                <li class="redc"><a href="{{ url('/service') }}">Service</a></li>
-                <li class="bluec"><a href="{{ url('/zakelijk') }}">Zakelijk</a></li>
-                <li class="redc"><a href="{{ url('/faq') }}">Faq</a></li>
-                <li class="bluec"><a href="{{ url('/Bezorgdiensten') }}">Bezorgdiensten</a></li>
-                <li class="redc"><a href="{{ url('/login_or_signup') }}">Account</a></li>
-                <li class="bluec"><a href="{{ url('/afspraken') }}">Afspraken Systeem</a></li> <!-- Nieuwe link toegevoegd -->
-            </ul>
-    </div>
-</nav>
+@extends('nav')
+
 <main class="main-content">
     <div class="form-container">
         <h1 class="form-title">Registration</h1>
@@ -41,6 +26,8 @@
             <button type="submit">Register</button>
         </form>
     </div>
+    @extends('footer')
+
 </main>
 </body>
 </html>

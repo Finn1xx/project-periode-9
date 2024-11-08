@@ -1,6 +1,12 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Afspraken</title>
+    @vite(['resources/css/app.scss', 'resources/js/app.js'])
+</head>
 
-@section('content')
+@extends(view: 'nav')
     <h2>Nieuwe Afspraak</h2>
 
     <form action="{{ route('appointments.store') }}" method="POST">
@@ -23,4 +29,4 @@
         </div>
         <button type="submit">Opslaan</button>
     </form>
-@endsection
+    @extends(view: 'footer')

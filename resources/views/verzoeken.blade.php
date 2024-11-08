@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Zakelijk</title>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite(['resources/css/app.scss', 'resources/js/app.js'])
     <script>
         window.onload = function() {
             checkUserRole(); // Controleer de gebruikersrol bij het laden van de pagina
@@ -48,23 +48,8 @@
 </head>
 
 <body>
-<nav id="navbar">
-    <div id="logonav">
-        <img src="{{ asset('img/cropped-logo UNEED-IT.png') }}" alt="Uneed-IT Logo">
-    </div>
-    <div id="logoptions">
-            <ul>
-                <li class="redc"><a href="{{ url('/') }}">Home</a></li>
-                <li class="bluec"><a href="{{ url('/over-ons') }}">Over ons</a></li>
-                <li class="redc"><a href="{{ url('/service') }}">Service</a></li>
-                <li class="bluec"><a href="{{ url('/zakelijk') }}">Zakelijk</a></li>
-                <li class="redc"><a href="{{ url('/faq') }}">Faq</a></li>
-                <li class="bluec"><a href="{{ url('/Bezorgdiensten') }}">Bezorgdiensten</a></li>
-                <li class="redc"><a href="{{ url('/login_or_signup') }}">Account</a></li>
-                <li class="bluec"><a href="{{ url('/afspraken') }}">Afspraken Systeem</a></li> <!-- Nieuwe link toegevoegd -->
-            </ul>
-    </div>
-</nav>
+@extends('nav')
+
 <main id="mainZakelijk">
     <div class="block-text">
         <h1>Welkom!</h1>
@@ -77,6 +62,7 @@
         </div>
     </div>
 </main>
+@extends('footer')
 
 <script>
     // Roep de functie aan wanneer de pagina geladen is

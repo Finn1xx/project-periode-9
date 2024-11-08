@@ -3,25 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Home</title>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite(['resources/css/app.scss', 'resources/js/app.js'])
 </head>
 <body>
-<nav id="navbar">
-    <div id="logonav">
-        <img src="Photos/cropped-logo%20UNEED-IT.png">
-    </div>
-    <div id="logoptions">
-        <ul>
-        <li class="redc"><a href="{{ url('/') }}">Home</a></li> <!-- Aangepast -->
-            <li class="bluec"><a href="{{ url('/over-ons') }}">Over ons</a></li>
-            <li class="redc"><a href="{{ url('/service') }}">Service</a></li> <!-- Aangepast -->
-            <li class="bluec"><a href="{{ url('/zakelijk') }}">Zakelijk</a></li> <!-- Aangepast -->
-            <li class="redc"><a href="{{ url('/faq') }}">Faq</a></li> <!-- Aangepast -->
-            <li class="bluec"><a href="{{ url('/Bezorgdiensten') }}">Bezorgdiensten</a></li> <!-- Aangepast -->
-            <li class="redc"><a href="{{ url('/login_or_signup') }}">Account</a></li> <!-- Aangepast -->
-        </ul>
-    </div>
-</nav>
+@extends('nav')
+
 <div class="container">
     <h1>Omschrijf zo duidelijk mogelijk het defect:</h1>
     <form action="submit_request.php" method="post" enctype="multipart/form-data">
@@ -63,5 +49,7 @@
 
     </form>
 </div>
+@extends('footer')
+
 </body>
 </html>

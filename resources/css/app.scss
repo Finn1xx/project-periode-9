@@ -1,7 +1,15 @@
+@import "bootstrap";
+
+
 body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
+}
+
+.bg-main{
+    background-image: url("../img/uneedi01.jpg");
+
 }
 
 #navbar {
@@ -90,15 +98,11 @@ body {
 .buttons button {
     padding: 10px 20px;
     margin: 0 10px;
-    background-color: #4CAF50;
+    background-color: red;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-}
-
-.buttons button:hover {
-    background-color: #45a049;
 }
 
 .changeForm {
@@ -202,14 +206,14 @@ body {
     color: #ffd700;
 }
 
-.container {
+/* .container {
     width: 60%;
     margin: 120px auto 50px;
     background-color: #f2f2f2;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
+} */
 
 h1 {
     text-align: center;
@@ -450,7 +454,6 @@ body{
 .Onze-Service{
     color: white;
     display: flex;
-    margin-top: 100px;
     justify-content: center;
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -493,16 +496,6 @@ body {
 }
 .answer.show {
     display: block;
-}
-
-.container{
-    border-radius: 12px;
-    margin-top: -100px;
-    margin-left: 600px;
-    display: flex;
-    flex-direction: column;
-    width: 500px;
-    background-color: gray;
 }
 
 .textbezorg{
@@ -610,8 +603,9 @@ body {
     padding-bottom: 100px;
     position: relative;
     overflow: hidden;
-    background: linear-gradient(to bottom right, #a3e0e3, #6dc5c7);
-
+    background: rgb(51,51,51);
+    background: linear-gradient(23deg, rgba(51,51,51,1) 50%, rgba(255,0,0,1) 100%);
+    
 }
 
 #mainOverOns {
@@ -803,12 +797,6 @@ body {
     color: white;
 }
 
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-}
 .form-container {
     width: 300px;
     margin: auto;
@@ -857,9 +845,6 @@ body {
     margin-bottom: 20px;
 }
 
-body{
-    background-color: black;
-}
 
 #navbar {
     display: flex;
@@ -1031,9 +1016,20 @@ body{
 .Onze-Service{
     color: white;
     display: flex;
-    margin-top: 100px;
     justify-content: center;
     font-family: Arial, Helvetica, sans-serif;
+}
+
+.serviceContainer{
+    .row{
+        .col-4{
+            border-style: groove;
+            border-color: red;
+            border-radius: 1rem;
+            margin-bottom: 0.7rem;
+        }
+    }
+
 }
 
 .Lorem{
@@ -1084,17 +1080,24 @@ body {
 
 }
 #mainhome {
-    position: relative;
+    /* position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     min-height: 100vh;
-    padding-top: 160px;
-    background-image: url("../img/40gp-uneedit5.jpg");
+    padding-top: 160px; */
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
+}
+
+#body_main{
+    
+    background-image: url("../img/40gp-uneedit5.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 #navbar {
@@ -1154,10 +1157,10 @@ body {
 }
 
 #hometext {
-    position: absolute;
+    /* position: absolute;
     top: 50%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%); */
     text-align: center;
     background-color: rgba(51, 51, 51, 0.95);
     width: 450px;
@@ -1187,14 +1190,36 @@ body {
     color: red;
 }
 
+.zakelijkContainer{
+    .row{
+        .zakelijkCol{
+        
+                border-style: groove;
+                border-color: red;
+                border-radius: 1rem;
+                padding: 2rem;
+        }
+    }
+}
+
+.login_or_sign_container{
+    .container{
+        .row{
+            .col-12{
+                border-style: groove;
+            }
+        }
+    }
+}
+
 
 #footer {
-    background-color: #fff;
+    background-color: #333;
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
-    padding: 20px;
+    padding: 80px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -1202,9 +1227,6 @@ body {
     z-index: 999;
 }
 
-#footer div {
-    flex-grow: 1;
-}
 
 #footer div p {
     margin: 0;
@@ -1213,6 +1235,13 @@ body {
     flex-grow: 1;
     text-align: center;
 }
+
+/* #footer div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+} */
 #adress{
     flex-grow: 1;
     text-align: center;
@@ -1394,8 +1423,12 @@ body {
 }
 
 h1, p {
-    color: #333;
+    color: mediumturquoise;
 }
+
+h1, p:nth-of-type(2) {
+    color: red;
+    }
 
 button {
     background-color: mediumturquoise;
@@ -1414,5 +1447,4 @@ button:hover {
 .buttons{
     display: flex;
     justify-content: center;
-    flex-direction: column;
 }
