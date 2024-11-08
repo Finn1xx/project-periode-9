@@ -25,7 +25,7 @@
         </div>
     </nav>
 
-    <h1>Dien een Repwwwaratieverzoek in</h1>
+    <h1>Dien een Reparatieverzoek in</h1>
 
     <form action="{{ route('repair.request.store') }}" method="POST">
         @csrf
@@ -39,6 +39,18 @@
         <div>
             <label for="description">Beschrijving:</label>
             <textarea id="description" name="description" required></textarea>
+        </div>
+
+        <!-- Veld voor naam van de gebruiker -->
+        <div>
+            <label for="name">Naam:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+
+        <!-- Veld voor email van de gebruiker -->
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
         </div>
 
         <!-- Standaard de status is pending, deze hoeft niet in het formulier te komen -->

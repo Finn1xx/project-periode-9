@@ -6,27 +6,19 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateRepairRequestsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('repair_requests', function (Blueprint $table) {
-            $table->id(); // Dit maakt een auto-incrementing primary key aan
-            $table->string('name'); // Voornaam
-            $table->string('email'); // E-mailadres
-            $table->text('description'); // Probleembeschrijving
-            $table->timestamps(); // Voor created_at en updated_at
+            $table->id();
+            $table->string('name');
+            $table->string('email');                 // E-mailadres voor communicatie
+            $table->string('title'); // Titel van het reparatieverzoek
+            $table->text('description'); // Beschrijving van het probleem
+            $table->string('status')->default('pending'); // Status kolom met default waarde
+            $table->timestamps(); // Timestamps voor created_at en updated_at
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('repair_requests');

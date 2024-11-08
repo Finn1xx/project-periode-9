@@ -1,42 +1,41 @@
-<!-- resources/views/verzoeken/index.blade.php -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Verzoeken</title>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <title>Verzoeken Overzicht</title>
 </head>
 <body>
-    <nav id="navbar">
-        <!-- Voeg hier je navigatie toe -->
-    </nav>
-    <main id="mainVerzoeken">
-        <h1>Alle Reparatieverzoeken</h1>
-        @if($requests->isEmpty())
-            <p>Er zijn momenteel geen verzoeken.</p>
-        @else
-            <table>
-                <thead>
+    <h1>Verzoeken Overzicht</h1>
+
+    @if(session('success'))
+        <p>{{ session('success') }}</p>
+    @endif
+
+    @if($verzoeken->isEmpty())
+        <p>Er zijn geen verzoeken om weer te geven.</p>
+    @else
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Titel</th>
+                    <th>Beschrijving</th>
+                    <th>Status</th>
+                    <th>Aangemaakt op</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($verzoeken as $verzoek)
                     <tr>
-                        <th>Naam</th>
-                        <th>E-mail</th>
-                        <th>Beschrijving</th>
-                        <th>Datum</th>
+                        <td>{{ $verzoek->id }}</td>
+                        <td>{{ $verzoek->title }}</td>
+                        <td>{{ $verzoek->description }}</td>
+                        <td>{{ $verzoek->status }}</td>
+                        <td>{{ $verzoek->created_at->format('d-m-Y H:i') }}</td>
                     </tr>
-                </thead>
-                <tbody>
-                    @foreach($requests as $request)
-                        <tr>
-                            <td>{{ $request->name }}</td>
-                            <td>{{ $request->email }}</td>
-                            <td>{{ $request->description }}</td>
-                            <td>{{ $request->created_at }}</td>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
-        @endif
-    </main>
+                @endforeach
+            </tbody>
+        </table>
+    @endif
 </body>
 </html>

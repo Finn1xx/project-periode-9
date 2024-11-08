@@ -2,49 +2,46 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\RepairRequest;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
+use App\Models\RepairRequest;
 
 class RepairRequestController extends Controller
 {
-    // Methode om het formulier voor een reparatieverzoek weer te geven
+    // Methode om het formulier weer te geven voor het aanmaken van een nieuw reparatieverzoek
     public function create()
     {
-        return view('reparatieverzoek'); // Laadt alleen de formulierpagina zonder $requests
+        // Zorg ervoor dat de view 'repair_requests.create' bestaat en correct is
+        return view('repair_requests.create');
     }
 
-    // Methode om het reparatieverzoek op te slaan
+    // Methode om een nieuw reparatieverzoek op te slaan in de database
     public function store(Request $request)
     {
-        // Valideer de invoer
-        $validator = Validator::make($request->all(), [
+        // Valideer de gegevens die van het formulier komen
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'required|string',
             'name' => 'required|string|max:255',
             'email' => 'required|email|max:255',
-            'description' => 'required|string',
         ]);
 
-        // Als de validatie faalt, retourneer een foutmelding
-        if ($validator->fails()) {
-            return response()->json(['errors' => $validator->errors()], 422);
-        }
+        // Maak een nieuw reparatieverzoek aan en sla het op in de database
+        RepairRequest::create([
+            'title' => $request->input('title'),
+            'description' => $request->input('description'),
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'status' => 'pending',  // Standaard status is 'pending'
+        ]);
 
-        // Maak een nieuw reparatieverzoek aan
-        $repairRequest = new RepairRequest();
-        $repairRequest->name = $request->input('name');
-        $repairRequest->email = $request->input('email');
-        $repairRequest->description = $request->input('description');
-        $repairRequest->save();
-
-        // Geef een succesvolle respons terug
-        return response()->json(['message' => 'Reparatieverzoek succesvol verzonden!'], 201);
+        // Redirect naar het formulier met een succesbericht
+        return redirect()->route('repair.request.create')->with('success', 'Reparatieverzoek aangemaakt');
     }
 
-    // Methode om alle reparatieverzoeken op te halen (voor admin)
+    // Methode om alle reparatieverzoeken weer te geven (voor admin bijvoorbeeld)
     public function index()
     {
-        // Haal alle verzoeken op
-        $requests = RepairRequest::all();
-        return view('verzoeken', compact('requests')); // Zorg dat de 'verzoeken' view bestaat
+        $verzoeken = RepairRequest::all();
+        return view('verzoeken.index', compact('verzoeken'));
     }
 }

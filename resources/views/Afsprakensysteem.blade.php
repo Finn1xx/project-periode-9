@@ -9,7 +9,7 @@
     @endif
 
     <ul>
-        @foreach ($appointments as $appointment)
+        @forelse ($appointments as $appointment)
             <li>
                 <a href="{{ route('appointments.show', $appointment) }}">
                     {{ $appointment->name }} - {{ $appointment->appointment_date }}
@@ -21,6 +21,8 @@
                     <button type="submit">Verwijderen</button>
                 </form>
             </li>
-        @endforeach
+        @empty
+            <li>Geen afspraken gevonden.</li>
+        @endforelse
     </ul>
 @endsection
