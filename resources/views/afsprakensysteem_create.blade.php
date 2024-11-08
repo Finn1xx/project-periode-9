@@ -10,7 +10,7 @@
 <body>
     @include('nav')
 
-    <main class="container my-5">
+    <main class="container  bewerken_container my-5">
         <h2>Nieuwe Afspraak</h2>
 
         <form action="{{ route('appointments.store') }}" method="POST" class="mt-3">

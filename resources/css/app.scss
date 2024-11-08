@@ -1227,6 +1227,102 @@ body {
     z-index: 999;
 }
 
+.register_container{
+
+    .col-12{
+        background-color: #333;
+        border-radius: 1rem;
+        padding: 1rem;
+        label{
+            color: red;
+
+        }
+        button{
+            background-color: mediumturquoise !important;
+            color: red;
+            border-style: none;
+        }
+    }
+}
+
+.overzicht_container{
+    a{
+        background-color: mediumturquoise !important;
+        color: red;
+        border-style: none;
+    }
+    .field{
+        background-color: #333;
+        padding: 2rem;
+        border-radius: 1rem;
+    }
+    th{
+        color: red;
+    }
+    td{
+        color: mediumturquoise;
+    }
+}
+
+.bewerken_container{
+    h2{
+            color: red;
+            font-weight: bold;
+    }
+    label{
+        color: mediumturquoise;
+    }
+    button{
+        background-color: mediumturquoise !important    ;
+        border-style: none;
+    }
+}
+
+.afspraken_container{
+    button{
+        color: red;
+        font-weight: bold;
+        margin: 0 !important;
+    }
+    p{
+        margin: 0 !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.create_container{
+    label{
+        color: red;
+    }
+    button{
+        background-color: mediumturquoise !important;
+        color: red;
+        font-weight: bold;
+    }
+    input{
+        &:last-of-type{
+            min-width: 100%;
+        }
+    }
+}
+
+.login_container{
+    .col-12{
+        background-color: #333;
+        border-radius: 1rem;
+        label{
+            color: red;
+        }
+        button{
+            background-color: mediumturquoise !important;
+            border-style: none !important;
+            color: red;
+        }
+    }
+}
+
 
 #footer div p {
     margin: 0;

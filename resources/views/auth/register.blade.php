@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Registreren</title>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite(['resources/css/app.scss', 'resources/js/app.js'])
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUa1gb8zM6CpNp8Qw7KqKoZ3txgGX7rGqO9foU7ELpBBvn8DBtDQJ6MDwGH7" crossorigin="anonymous">
 </head>
-<body>
-    <nav id="navbar">
+
+<body id="body_main">
+    <nav id="navbar" class="mb-4">
         <div id="logonav">
             <img src="{{ asset('img/cropped-logo UNEED-IT.png') }}" alt="Uneed-IT Logo">
         </div>
@@ -23,46 +25,61 @@
         </div>
     </nav>
 
-    <div class="container">
-        <h1>Maak een nieuw account aan</h1>
-        @if ($errors->any)
+    <main id="mainhome" class="container register_container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8 col-lg-6">
+                <h1 class="text-center mb-4">Maak een nieuw account aan</h1>
+                
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
 
-            @foreach($errors->all() as $error)
-                <li> {{ $error }}</li>
+                <form method="POST" action="{{ route('register') }}">
+                    @csrf
 
-            @endforeach
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Naam:</label>
+                        <input type="text" id="name" name="name" class="form-control" required autofocus value="{{ old('name') }}">
+                    </div>
 
-        @endif
-        
-        <form method="POST" action="{{ route('register') }}">
-            @csrf
-            <div>
-                <label for="name">Naam:</label>
-                <input type="text" id="name" name="name" required autofocus value="{{ old('name') }}">
+                    <div class="mb-3">
+                        <label for="email" class="form-label">E-mailadres:</label>
+                        <input type="email" id="email" name="email" class="form-control" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Wachtwoord:</label>
+                        <input type="password" id="password" name="password" class="form-control" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="password_confirmation" class="form-label">Bevestig Wachtwoord:</label>
+                        <input type="password" id="password_confirmation" name="password_confirmation" class="form-control" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="role" class="form-label">Kies een rol:</label>
+                        <select id="role" name="role" class="form-select" required>
+                            <option value="user">User</option>
+                            <option value="admin">Admin</option>
+                        </select>
+                    </div>
+
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary">Registreer</button>
+                    </div>
+                </form>
             </div>
-            <div>
-                <label for="email">E-mailadres:</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div>
-                <label for="password">Wachtwoord:</label>
-                <input type="password" id="password" name="password" required>
-            </div>
-            <div>
-                <label for="password_confirmation">Bevestig Wachtwoord:</label>
-                <input type="password" id="password_confirmation" name="password_confirmation" required>
-            </div>
-            <div>
-                <label for="role">Kies een rol:</label>
-                <select id="role" name="role" required>
-                    <option value="user">User</option>
-                    <option value="admin">Admin</option>
-                </select>
-            </div>
-            <div>
-                <button type="submit">Registreer</button>
-            </div>
-        </form>
-    </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    @include('footer')
 </body>
 </html>

@@ -10,7 +10,7 @@
 <body>
     @include('nav')
 
-    <main class="container my-5">
+    <main class="container bewerken_container my-5">
         <h2>Afspraak Bewerken</h2>
 
         <form action="{{ route('appointments.update', $appointment) }}" method="POST" class="mt-3">
