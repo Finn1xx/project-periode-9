@@ -1292,6 +1292,18 @@ body {
     }
 }
 
+.show_container{
+    button{
+        background-color: mediumturquoise !important;
+    }
+    strong{
+        color: mediumturquoise;
+    }
+    h2, span{
+        color: red;
+    }
+}
+
 .create_container{
     label{
         color: red;

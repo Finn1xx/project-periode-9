@@ -22,9 +22,9 @@
                         <ul>
                             @forelse ($appointments as $appointment)
                             <li>
-                                <p href="{{ route('appointments.show', $appointment) }}">
+                                <a class="pe-3" href="{{ route('appointments.show', $appointment) }}">
                                     {{ $appointment->name }} - {{ $appointment->appointment_date }}
-                                </p>
+                                </a>
                                 <a href="{{ route('appointments.edit', $appointment) }}"><button>Bewerken</button></a>
                                 <form action="{{ route('appointments.destroy', $appointment) }}" method="POST" style="display:inline;">
                                     @csrf
@@ -38,7 +38,7 @@
                             </ul>
                         </div>
                         
-                        <div class="col-12 pt-5">
+                        <div class="col-12 d-flex justify-content-center align-items-center pt-5">
 
                             <a href="{{ route('appointments.create') }}"><button>Nieuwe afspraak maken</button></a>
                         </div>
