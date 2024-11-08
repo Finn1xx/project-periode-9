@@ -24,7 +24,6 @@
                 <li><button class="bezorgdiensten" onclick="selectBezorgdienst('UPS')">UPS</button></li>
                 <li><button class="bezorgdiensten" onclick="selectBezorgdienst('DHL')">DHL</button></li>
                 <li><button class="bezorgdiensten" onclick="selectBezorgdienst('Homerr')">Homerr</button></li>
-                <!-- Voeg hier andere bezorgdiensten toe -->
             </ul>
             <p id="result"></p>
         </div>
@@ -33,7 +32,6 @@
 <script>
     function selectBezorgdienst(bezorgdienst) {
         document.getElementById('result').innerText = `Je hebt ${bezorgdienst} gekozen.`;
-        // Hier kun je verdere acties toevoegen afhankelijk van de geselecteerde bezorgdienst
     }
 </script>
 </body>

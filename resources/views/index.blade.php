@@ -44,7 +44,6 @@
         </div>
     @endif
 
-    <!-- Knop om terug te gaan naar de zakelijk pagina -->
     <div class="back-button">
         <a href="{{ url('/zakelijk') }}" class="btn btn-primary">Terug naar Zakelijk</a>
     </div>

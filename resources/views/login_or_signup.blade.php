@@ -15,7 +15,6 @@
         <div class="row">
             <div class="col-12 d-flex justify-content-center align-items-center">
                 <div>
-                    <!-- Voor niet-ingelogde gebruikers tonen we de login en signup knoppen -->
                     @guest
                     <div class="col-12 d-flex justify-content-center align-items-center flex-column">
 
@@ -25,7 +24,6 @@
                     </div>
                     @endguest
         
-                    <!-- Voor ingelogde gebruikers tonen we een loguitknop -->
                     @auth
                         <h1>Welkom, {{ Auth::user()->name }}</h1>
                         <form class="d-flex justify-content-center align-items-center" action="{{ route('logout') }}" method="POST">

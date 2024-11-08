@@ -22,7 +22,6 @@
             </div>
         </div>
         <div class="row">
-            <!-- <div class="Service-Alignaaa"> -->
             <div class="col-4 border-2">
                     <img src="" alt="">
                     <h1>Graphic Design</h1>
@@ -40,10 +39,8 @@
                     <p >Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis nihil provident ipsa ut optio sunt tenetur vitae excepturi consequuntur est, </p>
               
             </div>
-            <!-- </div> -->
         </div>
         <div class="row">
-            <!-- <div class="Service-Align2aaa"> -->
                 <div class="col-4">
                     
                         <img src="" alt="">
@@ -64,7 +61,6 @@
                         <p >Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti, accusantium? </p>
                     
                 </div>
-            <!-- </div> -->
             </div>
     </div>
 </main>

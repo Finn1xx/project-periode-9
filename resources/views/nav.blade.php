@@ -11,7 +11,7 @@
                 <li class="redc"><a href="{{ url('/faqq') }}">Faq</a></li>
                 <li class="bluec"><a href="{{ url('/Bezorgdiensten') }}">Bezorgdiensten</a></li>
                 <li class="redc"><a href="{{ url('/login_or_signup') }}">Account</a></li>
-                <li class="bluec"><a href="{{ url('/afspraken') }}">Afspraken Systeem</a></li> <!-- Nieuwe link toegevoegd -->
+                <li class="bluec"><a href="{{ url('/afspraken') }}">Afspraken Systeem</a></li>
             </ul>
         </div>
     </nav>

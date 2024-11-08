@@ -20,12 +20,10 @@ class LoginController extends Controller
 
     protected function authenticated(Request $request, $user)
     {
-        // Als de gebruiker een admin is, stuur ze naar een admin-dashboard
         if ($user->role == 'admin') {
-            return redirect()->route('admin.dashboard');
+            return redirect()->route('home');
         }
 
-        // Als de gebruiker een gewone gebruiker is, stuur ze naar de homepagina
         return redirect()->route('home');
     }
 }

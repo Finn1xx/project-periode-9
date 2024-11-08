@@ -7,12 +7,11 @@
     @vite(['resources/css/app.scss', 'resources/js/app.js'])
     <script>
         window.onload = function() {
-            checkUserRole(); // Controleer de gebruikersrol bij het laden van de pagina
+            checkUserRole(); 
         };
 
-        // Functie om de gebruikersrol te controleren
         function checkUserRole() {
-            fetch('/checkUserRole')  // Laravel route zonder .php
+            fetch('/checkUserRole')  
                 .then(response => {
                     if (!response.ok) {
                         throw new Error('Netwerkresponse was niet ok');
@@ -20,29 +19,27 @@
                     return response.json();
                 })
                 .then(data => {
-                    console.log('User role:', data.role); // Controleer de rol in de console
+                    console.log('User role:', data.role); 
 
                     // Knop voor offertes
                     const offertesBtn = document.getElementById("offertesBtn");
                     if (data.role === 'admin') {
                         console.log("Admin user - knop wordt zichtbaar");
-                        offertesBtn.style.display = "block"; // Laat de knop zien voor admin
+                        offertesBtn.style.display = "block"; 
                     } else {
                         console.log("Regular or guest user - knop wordt verborgen");
-                        offertesBtn.style.display = "none"; // Verberg de knop voor andere gebruikers
+                        offertesBtn.style.display = "none"; 
                     }
                 })
                 .catch(error => console.error('Error fetching user role:', error));
         }
 
-        // Functie om naar de verzoeken pagina te navigeren
         function viewRequests() {
-            window.location.href = "/verzoeken"; // Zorg ervoor dat deze route bestaat in Laravel
+            window.location.href = "/verzoeken"; 
         }
 
-        // Functie om naar de reparatieverzoekpagina te navigeren
         function navigateToRepairRequest() {
-            window.location.href = "/reparatieverzoek"; // Zorg ervoor dat deze route bestaat in Laravel
+            window.location.href = "/reparatieverzoek"; 
         }
     </script>
 </head>
@@ -55,9 +52,7 @@
         <h1>Welkom!</h1>
         <p>We zijn blij om u te kunnen helpen. Hoe kunnen wij assisteren?</p>
         <div class="buttons">
-            <!-- Knop voor verzoeken bekijken (moet zichtbaar zijn voor iedereen) -->
             <button onclick="viewRequests()">Verzoeken bekijken</button>
-            <!-- Knop voor offertes bekijken (alleen zichtbaar voor admin) -->
             <button id="offertesBtn" style="display: none;" onclick="navigateToRepairRequest()">Offertes bekijken</button>
         </div>
     </div>
@@ -65,7 +60,6 @@
 @extends('footer')
 
 <script>
-    // Roep de functie aan wanneer de pagina geladen is
     document.addEventListener('DOMContentLoaded', checkUserRole);
 </script>
 </body>

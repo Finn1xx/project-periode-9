@@ -7,11 +7,7 @@
 </head>
 
 <body>
-    <!-- Navigatiebalk -->
     @extends('nav')
-
-
-    <!-- Hoofdinhoud van de afsprakenpagina -->
     <main >
         <div>
             <h1>Afspraken</h1>
@@ -40,8 +36,6 @@
             </ul>
         </div>
     </main>
-
-    <!-- Footer -->
     @extends('footer')
 
 </body>

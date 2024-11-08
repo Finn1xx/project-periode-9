@@ -12,7 +12,6 @@
     <div class="container">
         <h1>Maak een account aan</h1>
 
-        <!-- Weergeven van foutmeldingen -->
         @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
