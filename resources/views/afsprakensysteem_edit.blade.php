@@ -8,19 +8,24 @@
         @method('PUT')
         <div>
             <label>Naam:</label>
-            <input type="text" name="name" value="{{ $appointment->name }}" required>
+            <input type="text" name="name" value="{{ old('name', $appointment->name) }}" required>
         </div>
         <div>
             <label>E-mail:</label>
-            <input type="email" name="email" value="{{ $appointment->email }}" required>
+            <input type="email" name="email" value="{{ old('email', $appointment->email) }}" required>
         </div>
         <div>
             <label>Datum en tijd:</label>
-            <input type="datetime-local" name="appointment_date" value="{{ $appointment->appointment_date->format('Y-m-d\TH:i') }}" required>
+            <input 
+                type="datetime-local" 
+                name="appointment_date" 
+                value="{{ old('appointment_date', $appointment->appointment_date ? $appointment->appointment_date->format('Y-m-d\TH:i') : '') }}" 
+                required
+            >
         </div>
         <div>
             <label>Opmerkingen:</label>
-            <textarea name="notes">{{ $appointment->notes }}</textarea>
+            <textarea name="notes">{{ old('notes', $appointment->notes) }}</textarea>
         </div>
         <button type="submit">Opslaan</button>
     </form>
