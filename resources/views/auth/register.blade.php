@@ -25,11 +25,20 @@
 
     <div class="container">
         <h1>Maak een nieuw account aan</h1>
+        @if ($errors->any)
+
+            @foreach($errors->all() as $error)
+                <li> {{ $error }}</li>
+
+            @endforeach
+
+        @endif
+        
         <form method="POST" action="{{ route('register') }}">
             @csrf
             <div>
                 <label for="name">Naam:</label>
-                <input type="text" id="name" name="name" required autofocus>
+                <input type="text" id="name" name="name" required autofocus value="{{ old('name') }}">
             </div>
             <div>
                 <label for="email">E-mailadres:</label>

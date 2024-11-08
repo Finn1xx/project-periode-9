@@ -42,6 +42,6 @@ class RepairRequestController extends Controller
     public function index()
     {
         $verzoeken = RepairRequest::all();
-        return view('verzoeken.index', compact('verzoeken'));
+        return view('index', compact('verzoeken'));
     }
 }

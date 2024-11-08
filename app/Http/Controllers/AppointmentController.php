@@ -10,7 +10,7 @@ class AppointmentController extends Controller
     public function index()
     {
         $appointments = Appointment::all(); // Haal alle afspraken op
-        return view('afsprakensysteem', compact('appointments')); // Stuur data naar de view
+        return view('afsprakensysteem', compact('appointments')); // Verwijs naar de juiste view
     }
 
     public function create()
