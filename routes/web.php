@@ -17,11 +17,14 @@ Route::prefix('appointments')->name('appointments.')->group(function () {
     Route::delete('/{appointment}', [AppointmentController::class, 'destroy'])->name('destroy'); // Verwijderen afspraak
 });
 
+// Verwijs naar de AppointmentController voor de /afspraken route
+Route::get('/afspraken', [AppointmentController::class, 'index'])->name('afsprakensysteem');
+
+// Algemene routes voor de site
 Route::get('/', function () { return view('home'); });
 Route::get('/over-ons', function () { return view('Overons'); });
 Route::get('/service', function () { return view('service'); });
 Route::get('/faq', function () { return view('faq'); });
-Route::get('/afspraken', function () { return view('afsprakensysteem'); })->name('afsprakensysteem'); // Verwijs naar afsprakensysteem.blade.php
 Route::get('/zakelijk', function () { return view('zakelijk'); });
 Route::get('/login_or_signup', function () { return view('login_or_signup'); })->name('login_or_signup');
 
